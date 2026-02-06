@@ -1,0 +1,40 @@
+build-system]
+requires = ["setuptools>68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "librisk-{{ cookiecutter.plugin_name }}"
+authors = [
+    {name="{{ cookiecutter.author_name }}", email="{{ cookiecutter.author_email }}" },
+]
+description = "{{ cookiecutter.plugin_description }}"
+readme = {file = "README.md", content-type="text/markdown"}
+license = {text = "MIT"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "click >= 8.0.0", # Todo
+]
+version = "{{ cookicutter.init_version }}"
+requires-python = ">=3.12"
+
+[project.entry-points.'librisk.plugins']
+librisk-{{ cookiecutter.plugin_name }} = "librisk_{{cookiecutter.project_slug}}:cli"
+
+# Uncomment if you have a template developed for this project
+
+# [project.entry-points.'librisk.plugins.templates']
+# librisk-{{ cookiecutter.plugin_name }} = "librisk_{{ cookiecutter.project_slug }}:AVAILABLE_TEMPLATES"
+
+[project.entry-points.'horizon.plugins.man']
+horizon-internal-rate-man = "horizon_internal_rate:AVAILABLE_MAN_PAGES"
+
+[tool.setuptools]
+packages = ["librisk_{{ cookiecutter.plugin_name }}"]  # Explicitly list your package
+package-dir = {"" = "src"}
+
+[tool.ruff]
+target-version = 'py312'

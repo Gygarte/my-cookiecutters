@@ -1,0 +1,8 @@
+{
+    "plugin_name":"plugin-1",
+    "plugin_description": "A short description of the plugin",
+    "project_slug":{{ cookiecutter.plugin_name.replace("-", "_") }},
+    "author_name": "Just ME",
+    "author_email": "just_me@email.com",
+    "init_version":"0.1.0",
+}
