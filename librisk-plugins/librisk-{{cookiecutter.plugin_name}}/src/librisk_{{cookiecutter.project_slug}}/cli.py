@@ -5,7 +5,5 @@ import sys
 import click
 
 
-def cli_group():
+def cli():
     pass
-
-
