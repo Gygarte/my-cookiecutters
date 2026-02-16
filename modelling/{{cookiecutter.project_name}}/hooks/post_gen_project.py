@@ -24,7 +24,7 @@ for path in REMOVE_PATHS:
         os.unlink(path) if os.path.isfile(path) else os.rmdir(path)
 
 # Implementation of part 2
-as_cli = '{{ cookeicutter.as_cli }}'
+as_cli = '{{ cookiecutter.as_cli }}'
 with_scientific_deps = '{{ cookiecutter.with_scientific_dependencies }}'
 
 default_packages = ['numpy', 'pandas', 'scipy', 'matplotlib', 'seaborn', 'polars', 'click', 'rich', 'statsmodels']
