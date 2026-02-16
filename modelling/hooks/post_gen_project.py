@@ -30,14 +30,24 @@ def remove_cli_dirs():
                 os.unlink(path) if os.path.isfile(path) else os.removedirs(path)
             except OSError as e:
                 print(f"Error removing {path}: {e}")
+                print("Retrying...")
                 shutil.rmtree(path, ignore_errors=True)
 
+def remove_placeholders():
+    PLACEHOLDERS_PATHS = [
+        os.path.join(root, file) for root, dirs, files in os.walk('.') for file in files if file.startswith('.placeholder')
+    ]
+    for path in PLACEHOLDERS_PATHS:
+        path = path.strip()
+        if path and os.path.exists(path) and os.path.isfile(path):
+            print(f"Removing placeholder at {path}")
+            os.unlink(path)
 
 def install_scientific_deps():
 
     default_packages = ['numpy', 'pandas', 'scipy', 'matplotlib', 'seaborn', 'polars', 'click', 'rich', 'statsmodels']
     as_cli = {{ cookiecutter.as_cli}}
-    with_scientific_deps = {{ cookiecutter.with_scientific_dependencies}}
+    with_scientific_deps = {{ cookiecutter.install_scientific_dependencies}}
 
     if as_cli and with_scientific_deps:
         print('Installing basic scientific dependencies')
@@ -68,5 +78,6 @@ def install_scientific_deps():
 
 if __name__ == '__main__':
     remove_cli_dirs()
+    remove_placeholders()
     install_scientific_deps()
     print("Setup complete!")

@@ -6,5 +6,5 @@
   "author_email": "just_me@email.com",
   "init_version": "0.1.0",
   "as_cli": true,
-  "with_scientific_dependencies": true
+  "install_scientific_dependencies": true
 }
