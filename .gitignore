@@ -1,0 +1,4 @@
+tests/
+
+# Chache
+.ruff_cache

@@ -1,10 +1,10 @@
 {
-    "project_name":"data-science-project",
-    "project_slug":{{ cookiecutter.project_name.replace("-","_") }},
-    "project_short_description":"A data science project.",
-    "author_name": "Just Me",
-    "author_email": "just_me@email.com",
-    "init_version": "0.1.0",
-    "as_cli":true,
-    "with_scientific_dependencies":true
+  "project_name": "data-science-project",
+  "project_slug": "{{ cookiecutter.project_name.replace(\"-\",\"_\") }}",
+  "project_short_description": "A data science project.",
+  "author_name": "Just Me",
+  "author_email": "just_me@email.com",
+  "init_version": "0.1.0",
+  "as_cli": true,
+  "with_scientific_dependencies": true
 }
