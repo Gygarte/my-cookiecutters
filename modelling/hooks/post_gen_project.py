@@ -47,9 +47,9 @@ def install_scientific_deps():
 
     default_packages = ['numpy', 'pandas', 'scipy', 'matplotlib', 'seaborn', 'polars', 'click', 'rich', 'statsmodels']
     as_cli = {{ cookiecutter.as_cli}}
-    with_scientific_deps = {{ cookiecutter.install_scientific_dependencies}}
+    install_scientific_deps = {{ cookiecutter.install_scientific_dependencies}}
 
-    if as_cli and with_scientific_deps:
+    if install_scientific_deps:
         print('Installing basic scientific dependencies')
         subprocess.run(
             [
